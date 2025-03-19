@@ -1,4 +1,4 @@
-Flask
+flask
 render_template
 request
 redirect
