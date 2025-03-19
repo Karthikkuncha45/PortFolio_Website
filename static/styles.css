@@ -1,0 +1,433 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color:black;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Navbar Styling */
+nav {
+    background-color: #1e1e2f;
+    height: 120px; /* Increased height for better visibility */
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar List */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px; /* Adds spacing between items */
+}
+
+/* Navbar Links */
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 40px; /* Increased font size */
+    font-weight: 600; /* Bold for better visibility */
+    padding: 18px 21px; /* Adjusted padding */
+    transition: 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #ff6b6b;
+    color: #ffffff;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    nav {
+        height: auto;
+        padding: 10px 0;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    nav ul li a {
+        font-size: 18px;
+    }
+}
+
+
+nav ul li a:hover {
+    background-color: #ff6b6b;
+    color: #ffffff;
+}
+
+/* For Responsive Navbar */
+@media (max-width: 768px) {
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+
+
+/*Content section for the options in the navbar*/
+
+.content-section {
+    display: none; /* Hide sections by default */
+    padding: 20px;
+    text-align: center;
+}
+
+#home {
+    display: block; /* Show home section by default */
+}
+
+
+/* Home Section */
+.home {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    padding: 100px 50px; /* Ensures spacing from navbar */
+    background-color: black;
+}
+
+/* Text Section */
+.info {
+    font-size: 80px;
+    font-weight: bold;
+    color: #ffffff;
+    max-width: 50%;
+}
+
+.info p {
+    margin: 10px 0;
+}
+
+
+/* Image Container */
+/* Image Container */
+.image {
+    position: relative;
+    display: inline-block;
+    perspective: 1000px; /* Adds 3D perspective */
+}
+
+/* 3D Effect & Glow */
+.image img {
+    height: 800px;
+    width: 800px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 10px 30px rgba(124, 211, 242, 3.0); /* Pink glow */
+    background: transparent;
+    transform: rotateY(0deg) rotateX(0deg);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Hover Effect for 3D */
+.image:hover img {
+    transform: rotateY(10deg) rotateX(10deg);
+    box-shadow: 0px 15px 40px rgba(255, 105, 180, 3.0); /* Intense glow */
+}
+
+/* Animated Glowing Aura */
+.image::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 850px;
+    height: 850px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 105, 180, 0.5) 20%, transparent 70%);
+    transform: translate(-50%, -50%) scale(1);
+    animation: pulseGlow 2s infinite alternate ease-in-out;
+    z-index: -1;
+}
+
+/* Glow Pulsating Animation */
+@keyframes pulseGlow {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    100% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.9; }
+}
+
+
+
+/* Animated Name */
+.name {
+    color: #ff6b6b;
+    font-size: 80px;
+    border-right: 4px solid #ff6b6b;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    width: 0; /* Initially hidden */
+    animation: typing 3s steps(10, end) forwards, blink 0.8s infinite;
+    vertical-align: middle;
+}
+
+/* After Typing Effect */
+.name.typed {
+    animation: glow 4.5s infinite alternate; /* Start glow effect */
+    border-right: none; /* Remove blinking cursor after typing */
+    width:auto !important; /* Fix disappearing issue */
+}
+
+/* Typing Effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 280px; } /* Adjust width based on text length */
+}
+
+/* Cursor Blinking */
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Glow Animation */
+@keyframes glow {
+    0% { transform: scale(1); color: #ff6b6b; text-shadow: none; }
+    50% { transform: scale(1.1); color: #ffcc00; text-shadow: 0 0 20px #ffcc00; }
+    90% { transform: scale(1); color: #9fdef2; text-shadow: none; }
+}
+
+
+/* Second Section in the Home Page*/
+
+/* About Section Container */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    max-width: 3000px;
+    height: 1440px;
+    margin: 100px auto;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Left Side - Image Styling */
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image img {
+    width: 700px;
+    height: 800px;
+    border-radius: 15%;
+    object-fit: cover;
+    box-shadow: 0px 0px 30px rgba(4, 211, 239, 0.3);
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+/* Hover Effect on Image */
+.about-image img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 50px rgba(136, 210, 230, 0.5);
+}
+
+/* Right Side - Text Styling */
+.about-text {
+    flex: 1;
+    text-align: right;
+    font-size: 50px;
+    color: white;
+    padding-left: 50px;
+    line-height: 1.8;
+}
+
+/* Smooth Fade-in Effect */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.about-text, .about-image img {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-text {
+        text-align: center;
+        padding-left: 0;
+        margin-top: 20px;
+    }
+    
+    .about-image img {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+
+/*Contact Me section in the Home Page*/
+
+/* Contact Section Container */
+/* Contact Section (Remove Top Margin) */
+.contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 3000px;
+    height: 700px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.2);
+}
+/*Follow me on heading in contact page*/
+.social-heading {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffcc00; /* Yellow Heading */
+}
+
+
+
+/* Left Side - Social Icons */
+.contact-social {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-left: 200px;
+}
+
+.contact-social img {
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-top: 30px;
+    margin-left: 70px;
+}
+
+/* Hover Effect */
+.contact-social img:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Right Side - Contact Form */
+/* Contact Form */
+.form-heading {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ff6b6b; /* Red Heading */
+}
+.contact-form {
+    flex: 1;
+    text-align: center;
+    min-width: 350px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align all inputs */
+    width: 100%;
+}
+
+form input, form textarea {
+    width: 80%; /* Ensure equal width */
+    max-width: 400px; /* Prevent excessive stretching */
+    padding: 12px;
+    height: 70px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 2px solid #ffcc00; /* Add subtle border */
+    background: #222;
+    color: #fff;
+    font-size: 32px;
+    outline: none;
+}
+
+/* Make textarea larger */
+form textarea {
+    height: 180px;
+    resize: none;
+}
+
+/* Submit Button */
+form button {
+    width: 85%;
+    max-width: 400px;
+    height: 60px;
+    padding: 12px;
+    border-radius: 30px;
+    font-size: 18px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background-color: #ffcc00;
+    transform: scale(1.1);
+}
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-social {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+        max-width: 100%;
+    }
+}
+
+/* Copyright Text */
+.copyright {
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.copyright::before {
+    content: "© ";
+    font-size: 20px; /* Slightly bigger for visibility */
+    color: #ffcc00; /* Yellow color for emphasis */
+}
